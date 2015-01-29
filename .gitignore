@@ -1,0 +1,5 @@
+linkedListTestRunner.c
+linkedListTestRunner.exe
+linkedListTestRunner.exe.core
+expr_assert.h
+*.o
