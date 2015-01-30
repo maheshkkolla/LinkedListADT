@@ -55,3 +55,47 @@ void test_get_last_element_gives_the_address_of_the_last_element_in_the_list(){
 	add_to_list(&list, node);
 	assertEqual(*(int *)(get_last_element(list)), 5);
 }
+void test_getElementAt_returns_the_pointer_to_the_node_at_the_particulat_index(){
+	int a = 5, b = 10;
+	int *result;
+	LinkedList list = createList();
+	NodePtr node = create_node(&a);
+	NodePtr node1 = create_node(&b);
+	add_to_list(&list, node);
+	add_to_list(&list, node1);
+	result = getElementAt(list, 1);
+	assertEqual(*result, 10);
+}
+
+void test_indexOf_returns_the_index_of_the_element_in_the_list(){
+	int a = 5, b = 10;
+	LinkedList list = createList();
+	NodePtr node = create_node(&a);
+	NodePtr node1 = create_node(&b);
+	add_to_list(&list, node);
+	add_to_list(&list, node1);
+	assertEqual(indexOf(list, &a), 0);
+}
+
+void test_indexOf_returns_minus_1_if_the_element_is_not_in_the_list(){
+	int a = 5, b = 10;
+	LinkedList list = createList();
+	NodePtr node = create_node(&a);
+	add_to_list(&list, node);
+	assertEqual(indexOf(list, &b), -1);
+}
+
+void test_deleteElementAt_deletes_the_element_and_returns_the_pointer_to_the_new_item_in_the_index(){
+	int a = 5, b = 10;
+	LinkedList list = createList();
+	NodePtr node = create_node(&a);
+	NodePtr node1 = create_node(&b);
+	NodePtr node2 = create_node(&a);
+	NodePtr result;
+	add_to_list(&list, node);
+	add_to_list(&list, node1);
+	add_to_list(&list, node2);
+	result = deleteElementAt(&list, 1);
+	assertEqual(result,node2);
+	assertEqual(list.count,2);
+}

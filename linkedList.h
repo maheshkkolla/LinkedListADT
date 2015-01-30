@@ -20,3 +20,7 @@ int add_to_list(LinkedList *,Node *);
 void traverse(LinkedList,traverseOperation);
 void *get_first_element(LinkedList list);
 void *get_last_element(LinkedList list);
+void *getElementAt(LinkedList, int );
+int indexOf(LinkedList, void *);
+void * deleteElementAt(LinkedList *, int);
+int asArray(LinkedList, void **);
